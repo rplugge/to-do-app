@@ -1,0 +1,6 @@
+<%= form_tag(users_path, method:"post") do%>
+  <input type="text" name="user[name]" placeholder="Name" required>
+  <input type="text" name="user[email]" placeholder="Email Address" required>
+  <input type="password" name="user[password]" placeholder="Password" required>
+  <input type="submit">
+<% end %>

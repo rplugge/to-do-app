@@ -1,4 +1,27 @@
 Rails.application.routes.draw do
+  
+  get "users" => 'users#index', as: 'users'       #List of all users
+  
+  get "users/new" => 'users#new', :as => 'new_user' #form for new user
+  
+  post "users" => 'users#create'    #creates new user, redirects to users/:id
+  
+  get "users/:id" => 'users#show', :as => 'user'    #user profile
+  
+  get "users/:id/edit" => 'users#edit', :as => 'edit_user'  #form for edit user
+  
+  put "users/:id" => 'users#update'                 #updates user
+   
+  delete "users/:id" => 'users#destroy'             #destroys user
+  
+  get "" => 'users#login'
+  
+  post "/login_verification" => 'users#login_verification', :as => 'login_verification'
+  
+  get ":login" => 'users#login'
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

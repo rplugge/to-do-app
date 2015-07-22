@@ -1,0 +1,8 @@
+<h1>Enter new information</h1> 
+
+
+<%= form_tag(user_path(@user.id), method:"put") do%>
+  <input type="text" name="user[name]" value="<%= @user.name %>" required>
+  <input type="email" name="user[email]" value="<%= @user.email %>" required>
+  <input type="submit" value="submit">
+<% end %>
