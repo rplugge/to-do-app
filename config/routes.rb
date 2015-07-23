@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :tasks
-  get "dashboard" => 'users#show' as 'dashboard'
+  get "dashboard" => 'users#show', as: 'dashboard'
   
   get "users" => 'users#index', as: 'users'       #List of all users
   

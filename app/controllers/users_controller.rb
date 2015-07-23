@@ -15,14 +15,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path(@user.id)
     else
       render "new" 
     end
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:id])
   end
   
   def edit
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path(@user.id)
     else
       render "edit"
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   
   def login
     if session[:id]
-      redirect_to user_path(session[:id])
+      redirect_to dashboard_path(session[:id])
     end
   end
   
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     
     if user_password == params[:user][:password]
       session[:id] = @user.id
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path(@user.id)
     else
       redirect_to login_path
     end

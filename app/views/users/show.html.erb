@@ -4,7 +4,7 @@
 
 <p><a href="<%= edit_user_path(@user.id) %>">Edit User</a></p>
 
-<p><a href="<%= user_path(@user.id) %>" data-method="delete" data-confirm="Are you sure?">Delete Account</a></p>
+<p><a href="<%= dashboard_path(@user.id) %>" data-method="delete" data-confirm="Are you sure?">Delete Account</a></p>
 
 
 <p><a href="<%= logout_path %>" data-method="post">Log Out</a></p>

@@ -1,3 +1,3 @@
 <% @users.each do |user| %>
-  <a href="<%= user_path(user.id) %>"><%= user.name %></a>
+  <a href="<%= dashboard_path(user.id) %>"><%= user.name %></a>
 <% end %>
