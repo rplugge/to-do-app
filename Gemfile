@@ -45,3 +45,5 @@ end
 
 gem 'bcrypt'
 gem 'pry'
+
+gem 'rails_12factor', group: :production
