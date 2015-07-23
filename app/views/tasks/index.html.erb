@@ -1,17 +1,6 @@
-<h1><%= @user.name %></h1>
+<p id="notice"><%= notice %></p>
 
-<p><%= @user.email %></p>
-
-<p><a href="<%= edit_user_path(@user.id) %>">Edit User</a></p>
-
-<p><a href="<%= user_path(@user.id) %>" data-method="delete" data-confirm="Are you sure?">Delete Account</a></p>
-
-
-<p><a href="<%= logout_path %>" data-method="post">Log Out</a></p>
-
-<hr>
-
-<h1>Tasks</h1>
+<h1>Listing Tasks</h1>
 
 <table>
   <thead>
@@ -23,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @user.tasks.each do |task| %>
+    <% @tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= task.content %></td>

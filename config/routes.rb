@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :tasks
+  get "dashboard" => 'users#show' as 'dashboard'
+  
   get "users" => 'users#index', as: 'users'       #List of all users
   
   get "users/new" => 'users#new', :as => 'new_user' #form for new user
