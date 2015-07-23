@@ -49,15 +49,26 @@ class UsersController < ApplicationController
   
   def login
     if session[:id]
-      redirect_to users_path
+      redirect_to user_path(session[:id])
     end
   end
   
   def login_verification
     @user = User.where(email: params[:user][:email]).first
 
-    binding.pry
-    user_password = BCrypt::Password.new(params[:user][:password])
+    user_password = BCrypt::Password.new(@user.password)
+    
+    if user_password == params[:user][:password]
+      session[:id] = @user.id
+      redirect_to user_path(@user.id)
+    else
+      redirect_to login_path
+    end
+  end
+  
+  def logout
+    session[:id] = nil
+    redirect_to login_path
   end
   
   private

@@ -16,9 +16,13 @@ Rails.application.routes.draw do
   
   get "" => 'users#login'
   
-  post "/login_verification" => 'users#login_verification', :as => 'login_verification'
+  post "login_verification" => 'users#login_verification', :as => 'login_verification'
   
-  get ":login" => 'users#login'
+  post "logout" => 'users#logout', :as => 'logout'
+  
+  get "login" => 'users#login', :as => 'login'
+  
+  get ":catch" => 'users#login'
   
   
   
